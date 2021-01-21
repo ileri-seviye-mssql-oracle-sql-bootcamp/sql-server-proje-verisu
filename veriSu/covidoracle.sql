@@ -1,0 +1,66 @@
+CREATE TABLE Adres(
+	ID  NUMBER NOT NULL PRIMARY KEY,
+	IL varchar(15) NULL,
+	ILCE varchar(20) NULL,
+	MAHALLE nchar(25) NULL,
+	SOKAK nchar(15) NULL,
+	BINA_NO nchar(5) NULL,
+	DAIRE_NO nchar(5) NULL,
+	POSTA_KODU nchar(5) NULL)
+
+CREATE TABLE Belirtiler(
+	ID nchar(10) NULL PRIMARY KEY,
+	HASTA_ID nchar(10) NULL,
+    BELIRTI_ADI nchar(10) NULL)
+    
+CREATE TABLE Covid(
+	ID number NOT NULL PRIMARY KEY,
+	HASTA_ID number NULL,
+	TEST_SONUC nchar(10) NULL)
+
+CREATE TABLE Doktor(
+	ID number  NOT NULL PRIMARY KEY,
+	AD varchar(50) NULL,
+	SOYAD varchar(50) NULL,
+	CINSIYET char(1) NULL,
+	TC_NO char(11) NULL,
+	DOGUM_TARIHI date NULL,
+	UZMANLIK_ID number NULL,
+	HASTANE_ID number NULL)
+    
+CREATE TABLE Hasta_Durumu(
+	ID number NOT NULL PRIMARY KEY,
+	HASTA_ID number NULL,
+	ILAC_ID number NULL,
+	TEDAVI_Durum tinyint NULL,
+	TEDAVI_BASLANGIC_TARIH date NULL)
+    
+CREATE TABLE Hasta_Kayit(
+    TC_NO char(11) NULL PRIMARY KEY,
+	AD varchar(50) NULL,
+	SOYAD varchar(50) NULL,
+	CINSIYET char(1) NULL,
+	TEL_NO char(12) NULL,
+	DOGUM_TARIHI date NULL,
+	ADRES_ID number NULL)   
+    
+CREATE TABLE HastaHastaliklari(
+	ID number NOT NULL PRIMARY KEY,
+	HASTALIK_ID number NULL)  
+
+CREATE TABLE Hastaliklar(
+	ID int NOT NULL PRIMARY KEY,
+	HASTALIK_ISMI varchar(100) NOT NULL)   
+    
+CREATE TABLE Hastane_Detay(
+	ID number NOT NULL PRIMARY KEY,
+	HASTANE_ADI varchar(150) NULL,
+	ADRES_ID number NULL)    
+    
+CREATE TABLE Ilaclar(
+	ID number NOT NULL PRIMARY KEY,
+	ILAC_ADI varchar(100) NULL) 
+
+CREATE TABLE Uzmanlik(
+	ID varchar(255) NOT NULL PRIMARY KEY,
+	Uzmanlýk varchar(255) NULL)
